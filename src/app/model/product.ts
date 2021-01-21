@@ -5,7 +5,8 @@ export class Producto {
     quote?: string;
     imageUrl: string;
     storeName: string;
-    stroreAvatarUrl: string;
+    storeAvatarUrl: string;
+    storeDescription?: string;
     price: string;
     category?: string;
     featured?: boolean;

@@ -1,4 +1,6 @@
-export let Featured = [
+import { Producto } from '../model/product';
+
+export let Featured: Producto[] = [
   {
     "id": 16,
     "title": "Green comfort chair",

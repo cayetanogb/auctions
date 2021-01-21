@@ -6,11 +6,11 @@ import { AppComponent } from './app.component';
 import { LayoutComponenteComponent } from './layout-componente/layout-componente.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { StoresInAuctionComponent } from './stores-in-auction/stores-in-auction.component';
 import { StoreInfoComponent } from './store-info/store-info.component';
 import { StoresAuctionListComponent } from './stores-auction-list/stores-auction-list.component';
 import { FilterByShopPipe } from './pipes/filter-by-shop.pipe';
-import { ProductComponent } from './product/product.component';
+import { ProductsServiceService } from './services/products-service.service';
+import { DestacadosProductsServiceService } from './services/destacados-products-service.service';
 
 @NgModule({
   declarations: [
@@ -18,17 +18,17 @@ import { ProductComponent } from './product/product.component';
     LayoutComponenteComponent,
     ProductListComponent,
     ProductDetailComponent,
-    StoresInAuctionComponent,
     StoreInfoComponent,
     StoresAuctionListComponent,
     FilterByShopPipe,
-    ProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    ProductsServiceService,
+    DestacadosProductsServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

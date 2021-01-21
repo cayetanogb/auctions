@@ -1,1 +1,29 @@
-<p>product-list works!</p>
+<div class="row" *ngIf="producto == 'destacado' else noDest">
+    <div class="col-sm-4 mb-4" *ngFor="let producto of listaProdDest">
+        <div class="card" style="width: 18rem;">
+            <img src="{{producto.imageUrl}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{producto.title}}</h5>
+                <p class="card-text">{{producto.description}}</p>
+                <p class="card-text">Price: {{producto.price}}</p>
+                <a href="#" class="btn btn-primary" (click)="emitDetalle()">Ver producto</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #noDest>
+    <div class="row">
+        <div class="col-sm-4 mb-4" *ngFor="let producto of listaProdSub">
+            <div class="card" style="width: 18rem;">
+                <img src="{{producto.imageUrl}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{producto.title}}</h5>
+                    <p class="card-text">{{producto.description}}</p>
+                    <p class="card-text">Price: {{producto.price}}</p>
+                    <a href="#" class="btn btn-primary" (click)="emitDetalle()">Ver producto</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

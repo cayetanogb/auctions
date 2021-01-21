@@ -1,4 +1,6 @@
-export let Items = [
+import { Producto } from '../model/product';
+
+export let Items: Producto[] = [
   {
     "id": 0,
     "title": "Vintage Bluetooth Radio",

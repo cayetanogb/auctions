@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Featured } from '../data/featured';
+import { Items } from '../data/items';
 import { Producto } from '../model/product';
 
 @Component({
@@ -8,11 +10,18 @@ import { Producto } from '../model/product';
 })
 export class ProductListComponent implements OnInit {
 
-  listProd: Producto[] = [];
+  listaProdDest = Featured;
+  listaProdSub = Items;
+  @Input() producto;
+
+  @Output() detalles = new EventEmitter<Producto>(null);
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  emitDetalle(producto: Producto): void {
+    this.detalles.emit(producto);
+  }
 }

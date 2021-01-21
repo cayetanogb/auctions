@@ -1,12 +1,13 @@
-<div class="container">
+<div class="container my-4">
     <div class="row">
-        <div class="col-4 border border-dark">
-            <a href="">Destacados</a>
+        <div class="col-2 border border-dark">
+            <a href="" class="text-decoration-none text-dark fw-bold fs-6" (click)="mostrarDestacados()">Destacados</a>
             <br>
-            <a href="">En Subasta</a>
+            <a href="" class="text-decoration-none text-dark fw-bold fs-6" (click)="mostrarSubasta()">En Subasta</a>
         </div>
-        <div class="col-8 border border-dark">
-
+        <div class="col-10 border border-dark">
+            <app-product-list [producto]="producto" (detalles)="recibir($event)"></app-product-list>
+            <!-- <app-product-detail></app-product-detail> -->
         </div>
     </div>
 </div>
