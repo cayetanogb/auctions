@@ -6,7 +6,7 @@ import { Featured } from '../data/featured';
 })
 export class DestacadosProductsServiceService {
 
-  listaProdDest = Featured;
+  destacado = Featured;
 
   constructor() { }
 }

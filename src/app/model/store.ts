@@ -1,5 +1,5 @@
 export class Store {
     storeName: string;
-    storeAvatar: string;
+    storeAvatarUrl: string;
     storeDescription: string;
 }

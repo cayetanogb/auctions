@@ -1,11 +1,15 @@
-<div class="row">
-    <div class="col-4">
-        <img src="{{producto.imageUrl}}">
+<div class="card mb-3" style="max-width: 540px">
+  <div class="row g-0">
+    <div class="col-md-3">
+      <img src="{{ imageUrl }}" alt="..." class="img-fluid"/>
     </div>
-    <div class="col-8">
-        <h5>{{producto.title}}</h5>
-        <p>{{producto.description}}</p>
-        <h4>{{producto.price}} LAST BID</h4>
-        <a href="#" class="btn btn-primary">PLACE BID $305</a>
+    <div class="col-md-7">
+      <div class="card-body">
+        <h5 class="card-title">{{ title }}</h5>
+        <p class="card-text">{{ description }}</p>
+        <h4>{{ price }} LAST BID</h4>
+        <a href="#" class="btn btn-info">PLACE BID $305</a>
+      </div>
     </div>
+  </div>
 </div>

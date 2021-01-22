@@ -1,5 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Producto } from '../model/product';
+import { Store } from '../model/store';
 
 @Component({
   selector: 'app-layout-componente',
@@ -10,6 +11,11 @@ export class LayoutComponenteComponent implements OnInit {
 
   producto: string;
   detalles: Producto;
+  imageUrl: string;
+  title: string;
+  description: string;
+  price: string;
+  tiendaInfo: Store = null;
 
   constructor() { }
 
@@ -17,15 +23,21 @@ export class LayoutComponenteComponent implements OnInit {
     this.producto = 'destacado';
   }
 
-  mostrarDestacados() {
+  mostrarDestacados(e) {
     this.producto = 'destacado';
+    e.preventDefault();
   }
 
-  mostrarSubasta() {
+  mostrarSubasta(e) {
     this.producto = 'subasta';
+    e.preventDefault();
   }
 
   recibir(e) {
     this.detalles = e;
+  }
+
+  recibeTienda(e) {
+    this.tiendaInfo = e;
   }
 }

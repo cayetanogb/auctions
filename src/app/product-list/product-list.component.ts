@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Featured } from '../data/featured';
-import { Items } from '../data/items';
 import { Producto } from '../model/product';
+import { DestacadosProductsServiceService } from '../services/destacados-products-service.service';
+import { ProductsServiceService } from '../services/products-service.service';
 
 @Component({
   selector: 'app-product-list',
@@ -10,18 +10,22 @@ import { Producto } from '../model/product';
 })
 export class ProductListComponent implements OnInit {
 
-  listaProdDest = Featured;
-  listaProdSub = Items;
+  listaProdDest;
+  listaProdSub;
   @Input() producto;
 
   @Output() detalles = new EventEmitter<Producto>(null);
 
-  constructor() { }
+  constructor(private listaSubasta: ProductsServiceService, private listaDestacado: DestacadosProductsServiceService) {
+    this.listaProdDest = this.listaDestacado.destacado;
+    this.listaProdSub = this.listaSubasta.subasta;
+  }
 
   ngOnInit(): void {
   }
 
-  emitDetalle(producto: Producto): void {
+  emitDetalle(producto: Producto, e): void {
     this.detalles.emit(producto);
+    e.preventDefault();
   }
 }

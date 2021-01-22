@@ -6,7 +6,7 @@ import { Items } from '../data/items';
 })
 export class ProductsServiceService {
 
-  listaProdSub = Items;
+  subasta = Items;
 
   constructor() { }
 }

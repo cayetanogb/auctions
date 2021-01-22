@@ -8,7 +8,10 @@ import { Producto } from '../model/product';
 })
 export class ProductDetailComponent implements OnInit {
 
-  @Input() producto: Producto;
+  @Input() imageUrl;
+  @Input() title;
+  @Input() description;
+  @Input() price;
 
   constructor() { }
 

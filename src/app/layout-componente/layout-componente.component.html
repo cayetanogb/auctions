@@ -1,13 +1,17 @@
 <div class="container my-4">
     <div class="row">
         <div class="col-2 border border-dark">
-            <a href="" class="text-decoration-none text-dark fw-bold fs-6" (click)="mostrarDestacados()">Destacados</a>
+            <a href="" class="text-decoration-none text-dark fw-bold fs-6" (click)="mostrarDestacados($event)">Destacados</a>
             <br>
-            <a href="" class="text-decoration-none text-dark fw-bold fs-6" (click)="mostrarSubasta()">En Subasta</a>
+            <a href="" class="text-decoration-none text-dark fw-bold fs-6" (click)="mostrarSubasta($event)">En Subasta</a>
         </div>
         <div class="col-10 border border-dark">
+            <app-stores-auction-list (enviar)="recibeTienda($event)" *ngIf="producto == 'subasta'"></app-stores-auction-list>
             <app-product-list [producto]="producto" (detalles)="recibir($event)"></app-product-list>
-            <!-- <app-product-detail></app-product-detail> -->
+            <ng-container *ngIf="producto == 'subasta'">
+                <app-store-info *ngIf="tiendaInfo" [tienda]="tiendaInfo"></app-store-info>
+            </ng-container>
+            <app-product-detail *ngIf="detalles" [imageUrl]="detalles.imageUrl" [title]="detalles.title" [description]="detalles.description" [price]="detalles.price"></app-product-detail>
         </div>
     </div>
 </div>
